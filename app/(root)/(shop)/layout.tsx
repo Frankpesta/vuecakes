@@ -6,9 +6,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			<ShopHeader />
-			<main>
+			<main className="my-8 px-[0.5rem] flex items-start justify-start gap-2">
 				<ShopLeftsidebar />
-				<div>{children}</div>
+				{children}
 			</main>
 		</>
 	);
