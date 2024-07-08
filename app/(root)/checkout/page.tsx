@@ -29,35 +29,45 @@ const Page = () => {
 								Billing Address
 							</h2>
 							<div className="mt-2">
-								<label className="block text-gray-700">Receiver's Name</label>
+								<label className="block text-gray-700">
+									Receiver&rsquo;s Name
+								</label>
 								<input
 									type="text"
 									className="mt-1 block w-full p-4 border border-slate-300 rounded-lg shadow-sm"
 								/>
 							</div>
 							<div className="mt-2">
-								<label className="block text-gray-700">Receiver's Name</label>
+								<label className="block text-gray-700">
+									Receiver&rsquo;s Name
+								</label>
 								<input
 									type="text"
 									className="mt-1 block w-full p-4 border border-slate-300 rounded-lg shadow-sm"
 								/>
 							</div>
 							<div className="mt-2">
-								<label className="block text-gray-700">Receiver's Name</label>
+								<label className="block text-gray-700">
+									Receiver&rsquo;s Name
+								</label>
 								<input
 									type="text"
 									className="mt-1 block w-full p-4 border border-slate-300 rounded-lg shadow-sm"
 								/>
 							</div>
 							<div className="mt-2">
-								<label className="block text-gray-700">Receiver's Name</label>
+								<label className="block text-gray-700">
+									Receiver&rsquo;s Name
+								</label>
 								<input
 									type="text"
 									className="mt-1 block w-full p-4 border border-slate-300 rounded-lg shadow-sm"
 								/>
 							</div>
 							<div className="mt-2">
-								<label className="block text-gray-700">Receiver's Name</label>
+								<label className="block text-gray-700">
+									Receiver&rsquo;s Name
+								</label>
 								<input
 									type="text"
 									className="mt-1 block w-full p-4 border border-slate-300 rounded-lg shadow-sm"
