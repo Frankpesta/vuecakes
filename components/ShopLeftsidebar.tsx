@@ -4,7 +4,7 @@ import SidebarBadge from "./SidebarBadge";
 
 const ShopLeftsidebar = () => {
 	return (
-		<aside className="hidden md:flex flex-col items-center justify-center gap-[40px] w-1/2">
+		<aside className="hidden lg:flex flex-col items-center justify-center gap-[40px] w-1/2">
 			<SidebarCard heading="Event" />
 			<SidebarCard heading="Categories" />
 			<SidebarBadge />

@@ -3,18 +3,19 @@ import Image from "next/image";
 
 const ShopHeader = () => {
 	return (
-		<div className="relative h-[60vh] lg:h-screen bg-gray-900 text-white">
-			<div className="absolute inset-0">
-				<Image
-					src="/hero.svg"
-					alt="Hero background"
-					fill
-					objectFit="cover"
-					quality={100}
-				/>
+		<div className="relative h-[40vh] lg:h-screen bg-gray-900 text-white">
+			<Image
+				src="/hero.svg"
+				alt="Hero background"
+				fill
+				objectFit="cover"
+				quality={100}
+			/>
+			{/* <div className="absolute inset-0">
+				
 				<div className="absolute inset-0 bg-black opacity-50"></div>
-			</div>
-			<div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
+			</div> */}
+			{/* <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
 				<h1 className="text-5xl font-bold">Shop</h1>
 				<p className="mt-4 text-xl">A World of Flavour In Every Bite</p>
 				<div className="hidden lg:flex mt-8 gap-[75px]">
@@ -36,7 +37,7 @@ const ShopHeader = () => {
 						)
 					)}
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };

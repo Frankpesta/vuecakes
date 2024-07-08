@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 const Footer = () => {
 	return (
 		<footer className="bg-primary-lighter text-gray-800 py-12 px-4 lg:px-24">
-			<div className="container mx-auto flex flex-col lg:flex-row gap-8 lg:justify-between items-start lg:items-center ">
+			<div className="container mx-auto flex flex-col md:flex-wrap lg:flex-row gap-8 lg:justify-between items-start lg:items-center ">
 				<div className="flex flex-col">
 					<h2 className="text-2xl font-bold text-primary-darker">VUECAKES</h2>
 					<div className="flex space-x-4 mt-4">
