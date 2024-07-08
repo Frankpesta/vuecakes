@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const CartTotal = () => {
+	const router = useRouter();
 	const [deliveryOption, setDeliveryOption] = useState("quick");
 	const subtotal = 30000;
 	const deliveryCost = deliveryOption === "quick" ? 5000 : 0;
@@ -56,7 +58,9 @@ const CartTotal = () => {
 				<p className="text-lg font-bold">Total</p>
 				<p className="text-lg font-bold">N {total.toLocaleString()}</p>
 			</div>
-			<button className="w-full bg-pink-600 text-white py-2 rounded-md">
+			<button
+				onClick={() => router.push("/checkout")}
+				className="w-full bg-pink-600 text-white py-2 rounded-md">
 				Checkout
 			</button>
 		</div>

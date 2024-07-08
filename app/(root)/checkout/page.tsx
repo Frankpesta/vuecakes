@@ -1,6 +1,10 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
+import router from "next/router";
 
 const Page = () => {
+	const router = useRouter();
 	return (
 		<div className="bg-slate-50 p-4 lg:p-12">
 			<div className="max-w-full md:max-w-5xl mx-auto p-4 lg:p-12 bg-white rounded-lg shadow-none md:shadow-md">
@@ -93,7 +97,9 @@ const Page = () => {
 							<span>Total</span>
 							<span>N 35,000</span>
 						</div>
-						<button className="mt-6 w-full bg-pink-600 text-white p-2 rounded-md shadow-md">
+						<button
+							onClick={() => router.push("/success")}
+							className="mt-6 w-full bg-pink-600 text-white p-2 rounded-md shadow-md">
 							Order Now
 						</button>
 					</div>

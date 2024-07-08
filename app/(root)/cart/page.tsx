@@ -1,3 +1,4 @@
+"use client";
 import CartTotal from "@/components/CartTotal";
 import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
