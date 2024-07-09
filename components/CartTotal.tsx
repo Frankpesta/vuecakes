@@ -11,7 +11,7 @@ const CartTotal = () => {
 
 	return (
 		<div className="p-4 lg:p-12 bg-primary-lighter rounded-lg shadow-md w-full max-w-md mx-auto mt-8">
-			<h2 className="text-lg lg:text-[30px] font-bold text-pink-600 mb-4">
+			<h2 className="text-lg lg:text-[30px] font-bold text-pink-600 py-6 text-center">
 				Cart Total
 			</h2>
 			<div className="mb-4 flex items-center justify-between">
@@ -35,7 +35,7 @@ const CartTotal = () => {
 							Quick Delivery:
 						</label>
 					</div>
-					<span className="block text-right text-sm lg:text-lg mt-[-2px]">
+					<span className="block text-right text-sm lg:text-lg mt-[-2rem]">
 						5,000
 					</span>
 					<div className="flex items-center gap-3">
