@@ -1,4 +1,3 @@
-// components/Footer.tsx
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
@@ -9,17 +8,17 @@ const Footer = () => {
 				<div className="flex flex-col">
 					<h2 className="text-2xl font-bold text-primary-darker">VUECAKES</h2>
 					<div className="flex space-x-4 mt-8">
-						<FaFacebook className="text-pink-600" size="24" />
-						<FaTwitter className="text-pink-600" size="24" />
-						<FaInstagram className="text-pink-600" size="24" />
+						<FaFacebook className="text-primary-main" size="24" />
+						<FaTwitter className="text-primary-main" size="24" />
+						<FaInstagram className="text-primary-main" size="24" />
 					</div>
 				</div>
-				<div className="mt-2">
+				<div className="spacey-y4">
 					<h3 className="font-bold text-[30px]">Working Hours</h3>
-					<p className="mt-2 text-[20px]">Open</p>
+					<p className="text-[20px] font-bold">Open</p>
 					<p className="text-[20px]">Mondays - Saturday</p>
 					<p className="text-[20px]">8:00AM to 5:00PM</p>
-					<p className="mt-2 font-bold text-[20px]">Closed</p>
+					<p className="font-bold text-[20px]">Closed</p>
 					<p className="text-[20px]">Sunday</p>
 				</div>
 				<div>

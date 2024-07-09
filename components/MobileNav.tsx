@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CiHome, CiHeart, CiUser, CiPhone } from "react-icons/ci";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
+import { FiShoppingBag } from "react-icons/fi";
 
 const MobileNav = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
@@ -22,23 +23,23 @@ const MobileNav = () => {
 
 			{/* Mobile Navigation Menu */}
 			{isNavOpen && (
-				<div className="fixed top-0 right-0 mt-16 mr-5 w-2/4 bg-white p-4 rounded-xl z-50 shadow-lg sm:hidden">
+				<div className="fixed top-0 right-0 mt-16 w-2/4 bg-white p-4 rounded-bl-xl z-50 shadow-lg sm:hidden">
 					<div className="flex flex-col space-y-4">
 						<div className="flex items-center gap-4">
 							<CiHome className="text-gray-800 w-5 h-5" />
 							<span className="text-gray-800">Home</span>
 						</div>
 						<div className="flex items-center gap-4">
-							<CiHeart className="text-gray-800 w-5 h-5" />
-							<span className="text-gray-800">Wishlist</span>
-						</div>
-						<div className="flex items-center gap-4">
-							<CiUser className="text-gray-800 w-5 h-5" />
-							<span className="text-gray-800">Account</span>
+							<FiShoppingBag className="text-gray-800 w-5 h-5" />
+							<span className="text-gray-800">Shop</span>
 						</div>
 						<div className="flex items-center gap-4">
 							<CiPhone className="text-gray-800 w-5 h-5" />
 							<span className="text-gray-800">Contact</span>
+						</div>
+						<div className="flex items-center gap-4">
+							<CiHeart className="text-gray-800 w-5 h-5" />
+							<span className="text-gray-800">Wishlist</span>
 						</div>
 					</div>
 				</div>

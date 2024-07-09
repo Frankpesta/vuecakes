@@ -32,7 +32,7 @@ const Cart = () => {
 					<thead>
 						<tr>
 							<th className="px-2 lg:px-6 py-3 text-sm lg:text-[20px] text-left"></th>
-							<th className="px-2 lg:px-6 py-3 text-sm lg:text-[20px] text-left">
+							<th className="px-2 lg:px-3 py-3 text-sm lg:text-[20px] text-left">
 								Product
 							</th>
 							<th className="px-2 lg:px-6 py-3 text-sm lg:text-[20px] text-left">
@@ -62,7 +62,7 @@ const Cart = () => {
 										/>
 									</div>
 								</td>
-								<td className="px-2 lg:px-6 py-4 text-xs lg:text-lg ">
+								<td className="px-2 lg:px-3 py-4 text-xs lg:text-lg ">
 									<div>
 										<p className="font-semibold text-xs lg:text-xl">
 											{product.name}

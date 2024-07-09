@@ -45,16 +45,18 @@ const Navbar = () => {
 				</div>
 
 				<CiHeart className="hidden lg:block w-6 h-6" />
-				<CiUser className="hidden lg:block w-6 h-6" />
+				<CiUser className="w-6 h-6" />
 				<Link
 					href={"/cart"}
 					className="relative flex items-center gap-4 lg:gap-1">
 					<p className="hidden lg:block text-lg font-bold">Cart</p>
 					<CiSearch className="block md:hidden w-6 h-6" />
-					<MdOutlineShoppingCart className="w-6 h-6" />
-					<span className="text-white text-sm rounded-full bg-red-600 p-1">
-						10+
-					</span>
+					<div className="flex items-center gap-1">
+						<MdOutlineShoppingCart className="w-6 h-6" />
+						<span className="text-white text-sm rounded-full bg-red-600 p-1">
+							10+
+						</span>
+					</div>
 				</Link>
 				<MobileNav />
 			</div>

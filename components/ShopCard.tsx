@@ -27,7 +27,7 @@ const ShopCard = () => {
 							</h3>
 							<CiHeart className="w-7 h-7 text-[20px] text-primary-main font-bold" />
 						</div>
-						<p className="text-black text-[18px] font-bold">{cake.price}</p>
+						<p className="text-black text-[18px] font-bold">N {cake.price}</p>
 						<div className="flex items-center justify-between mt-6 gap-4 lg:gap-0">
 							<button
 								onClick={() => router.push("/cart")}
