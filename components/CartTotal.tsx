@@ -34,9 +34,10 @@ const CartTotal = () => {
 						<label htmlFor="quickDelivery" className="text-sm lg:text-lg">
 							Quick Delivery:
 						</label>
-
-						<span className="block text-right text-sm lg:text-lg">5,000</span>
 					</div>
+					<span className="block text-right text-sm lg:text-lg mt-[-2px]">
+						5,000
+					</span>
 					<div className="flex items-center gap-3">
 						<input
 							type="radio"
