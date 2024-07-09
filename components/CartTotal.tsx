@@ -10,7 +10,7 @@ const CartTotal = () => {
 	const total = subtotal + deliveryCost;
 
 	return (
-		<div className="p-12 bg-primary-lighter rounded-lg shadow-md w-full max-w-md mx-auto mt-8">
+		<div className="p-4 lg:p-12 bg-primary-lighter rounded-lg shadow-md w-full max-w-md mx-auto mt-8">
 			<h2 className="text-[30px] font-bold text-pink-600 mb-4">Cart Total</h2>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Subtotal</p>
@@ -18,7 +18,7 @@ const CartTotal = () => {
 			</div>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Delivery</p>
-				<div>
+				<div className="flex flex-col gap-3">
 					<div className="flex items-center mb-2">
 						<input
 							type="radio"
