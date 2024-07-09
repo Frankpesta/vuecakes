@@ -16,7 +16,7 @@ const CartTotal = () => {
 			</h2>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-sm lg:text-lg">Subtotal</p>
-				<p className="text-sm lg:*:text-lg">N {subtotal.toLocaleString()}</p>
+				<p className="text-sm lg:text-lg">N {subtotal.toLocaleString()}</p>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-sm lg:text-lg">Delivery</p>
@@ -71,7 +71,7 @@ const CartTotal = () => {
 			</div>
 			<button
 				onClick={() => router.push("/checkout")}
-				className="w-full bg-pink-600 text-white py-2 rounded-md">
+				className="w-full bg-pink-600 text-white py-3 rounded-md mt-2">
 				Checkout
 			</button>
 		</div>
