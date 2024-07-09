@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { CiUser, CiHeart, CiSearch } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoMdMenu } from "react-icons/io";
 import { Input } from "@/components/ui/input";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
 	const [active, setActive] = useState("shop");
 	return (
 		<div className="flex items-center justify-between py-[30px] px-8 lg:px-[75px] bg-white z-30">
-			<div className="">
+			<Link href={"/"} className="">
 				<h2 className="text-2xl font-bold text-primary-darker">VUECAKES</h2>
-			</div>
+			</Link>
 			<nav className="hidden lg:flex gap-[40px]">
 				<Link
 					href="/shop"
@@ -52,11 +52,11 @@ const Navbar = () => {
 					<p className="hidden lg:block text-lg font-bold">Cart</p>
 					<CiSearch className="block md:hidden w-6 h-6" />
 					<MdOutlineShoppingCart className="w-6 h-6" />
-					<span className="text-white text-sm rounded-full bg-red-700 p-1 pl-[-2rem]">
+					<span className="text-white text-sm rounded-full bg-red-600 p-1">
 						10+
 					</span>
-					<IoMdMenu className="block lg:hidden w-6 h-6" />
 				</Link>
+				<MobileNav />
 			</div>
 		</div>
 	);

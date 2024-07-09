@@ -98,8 +98,8 @@ const Page = () => {
 							<span>N 35,000</span>
 						</div>
 						<button
-							onClick={() => router.push("/success")}
-							className="mt-6 w-full bg-pink-600 text-white p-2 rounded-md shadow-md">
+							onClick={() => router.push("/checkout/pay")}
+							className="mt-6 w-full bg-primary-light text-white p-2 rounded-md shadow-md">
 							Order Now
 						</button>
 					</div>

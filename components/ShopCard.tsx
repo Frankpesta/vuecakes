@@ -1,36 +1,42 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
+import { useRouter } from "next/navigation";
+import { cakes } from "@/constants";
 
 const ShopCard = () => {
-	const numbers = [1, 2, 3, 5, 5];
+	const numbers = ["1", "2", "3", "4"];
+	const router = useRouter();
 	return (
 		<>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{[...Array(12)].map((_, index) => (
-					<div key={index} className="bg-white p-8 rounded">
+				{cakes.map((cake) => (
+					<div key={cake.id} className="bg-white p-8 rounded">
 						<Image
-							src="/cake-dough.jpg"
+							src={cake.image}
 							width={100}
 							height={100}
 							alt="Cake"
 							className="w-full h-[14rem] object-cover rounded"
 						/>
-						<div className="flex items-center justify-between gap-4">
-							<h3 className="mt-4 text-[20px] md:text-[27px] font-bold">
-								Name of Cake
+						<div className="flex items-center justify-between gap-4 mt-2">
+							<h3 className="mt-4 text-[18px] md:text-[20px] font-bold">
+								{cake.name}
 							</h3>
-							<CiHeart className="text-[20px] text-primary-main font-bold" />
+							<CiHeart className="w-7 h-7 text-[20px] text-primary-main font-bold" />
 						</div>
-						<p className="text-black text-[18px] lg:text-[24px] font-bold">
-							N 35,000
-						</p>
-						<div className="flex items-center justify-between mt-4 gap-4 lg:gap-0">
-							<button className="w-full lg:w-fit bg-primary-main text-white py-2 px-12 rounded-md text-sm">
+						<p className="text-black text-[18px] font-bold">{cake.price}</p>
+						<div className="flex items-center justify-between mt-6 gap-4 lg:gap-0">
+							<button
+								onClick={() => router.push("/cart")}
+								className="w-full lg:w-fit bg-primary-main text-white py-2 px-12 rounded-md text-sm">
 								Buy Now
 							</button>
-							<button className="border border-primary-main text-primary-main py-2 px-4 rounded">
+							<button
+								onClick={() => router.push("/cart")}
+								className="border border-primary-main text-primary-main py-2 px-4 rounded">
 								<MdOutlineShoppingCart />
 							</button>
 						</div>
@@ -38,9 +44,13 @@ const ShopCard = () => {
 				))}
 			</div>
 			<div className="flex items-center justify-center gap-4 my-8">
-				{numbers.map((index, number) => (
+				{numbers.map((number, index) => (
 					<button
-						className="border border-primary-main text-white bg-primary-main py-2 px-4 rounded"
+						className={`border py-2 px-4 rounded ${
+							index === 0
+								? "bg-primary-main text-white"
+								: "text-primary-main border-primary-main bg-white"
+						}`}
 						key={index}>
 						{number}
 					</button>
