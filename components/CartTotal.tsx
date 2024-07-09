@@ -18,33 +18,35 @@ const CartTotal = () => {
 			</div>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Delivery</p>
-				<div className="flex items-center mb-2">
-					<input
-						type="radio"
-						id="quickDelivery"
-						name="delivery"
-						value="quick"
-						checked={deliveryOption === "quick"}
-						onChange={() => setDeliveryOption("quick")}
-						className="mr-2 accent-black"
-					/>
-					<label htmlFor="quickDelivery" className="text-lg">
-						Quick Delivery: N5,000
-					</label>
-				</div>
-				<div className="flex flex-col items-center gap-3">
-					<input
-						type="radio"
-						id="storePickup"
-						name="delivery"
-						value="store"
-						checked={deliveryOption === "store"}
-						onChange={() => setDeliveryOption("store")}
-						className="mr-2 accent-black"
-					/>
-					<label htmlFor="storePickup" className="text-lg">
-						Store pick up
-					</label>
+				<div>
+					<div className="flex items-center mb-2">
+						<input
+							type="radio"
+							id="quickDelivery"
+							name="delivery"
+							value="quick"
+							checked={deliveryOption === "quick"}
+							onChange={() => setDeliveryOption("quick")}
+							className="mr-2 accent-black"
+						/>
+						<label htmlFor="quickDelivery" className="text-lg">
+							Quick Delivery: N5,000
+						</label>
+					</div>
+					<div className="flex flex-col items-center gap-3">
+						<input
+							type="radio"
+							id="storePickup"
+							name="delivery"
+							value="store"
+							checked={deliveryOption === "store"}
+							onChange={() => setDeliveryOption("store")}
+							className="mr-2 accent-black"
+						/>
+						<label htmlFor="storePickup" className="text-lg">
+							Store pick up
+						</label>
+					</div>
 				</div>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
