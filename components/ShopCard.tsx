@@ -11,7 +11,7 @@ const ShopCard = () => {
 	const router = useRouter();
 	return (
 		<>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
 				{cakes.map((cake) => (
 					<div key={cake.id} className="bg-white p-8 rounded">
 						<Image
@@ -22,7 +22,7 @@ const ShopCard = () => {
 							className="w-full h-[14rem] object-cover rounded"
 						/>
 						<div className="flex items-center justify-between gap-4 mt-2">
-							<h3 className="mt-4 text-[18px] md:text-[20px] font-bold">
+							<h3 className="mt-4 text-[18px] md:text-[20px] font-semibold">
 								{cake.name}
 							</h3>
 							<CiHeart className="w-7 h-7 text-[20px] text-primary-main font-bold" />

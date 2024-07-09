@@ -12,11 +12,11 @@ const CartTotal = () => {
 	return (
 		<div className="p-12 bg-primary-lighter rounded-lg shadow-md w-full max-w-md mx-auto mt-8">
 			<h2 className="text-[30px] font-bold text-pink-600 mb-4">Cart Total</h2>
-			<div className="mb-4">
+			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Subtotal</p>
 				<p className="text-lg">N {subtotal.toLocaleString()}</p>
 			</div>
-			<div className="mb-4">
+			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Delivery</p>
 				<div className="flex items-center mb-2">
 					<input
@@ -32,7 +32,7 @@ const CartTotal = () => {
 						Quick Delivery: N5,000
 					</label>
 				</div>
-				<div className="flex items-center">
+				<div className="flex flex-col items-center gap-3">
 					<input
 						type="radio"
 						id="storePickup"
@@ -47,14 +47,16 @@ const CartTotal = () => {
 					</label>
 				</div>
 			</div>
-			<div className="mb-4">
+			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Address</p>
-				<p className="text-lg">Banex Plaza, Wuse</p>
-				<a href="#" className="text-pink-600 hover:underline">
-					Change Address
-				</a>
+				<div>
+					<p className="text-lg">Banex Plaza, Wuse</p>
+					<a href="#" className="text-pink-600 hover:underline">
+						Change Address
+					</a>
+				</div>
 			</div>
-			<div className="mb-4">
+			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg font-bold">Total</p>
 				<p className="text-lg font-bold">N {total.toLocaleString()}</p>
 			</div>
