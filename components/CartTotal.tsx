@@ -35,7 +35,7 @@ const CartTotal = () => {
 							Quick Delivery:
 						</label>
 					</div>
-					<span className="block text-right text-sm lg:text-lg mt-[-2rem]">
+					<span className="block text-right text-sm lg:text-lg mt-[-1.3rem]">
 						5,000
 					</span>
 					<div className="flex items-center gap-3">
