@@ -11,7 +11,9 @@ const Navbar = () => {
 	return (
 		<div className="flex items-center justify-between py-[30px] px-8 lg:px-[75px] bg-white z-30">
 			<Link href={"/"} className="">
-				<h2 className="text-2xl font-bold text-primary-darker">VUECAKES</h2>
+				<h2 className="text-lg md:text-2xl font-bold text-primary-darker">
+					VUECAKES
+				</h2>
 			</Link>
 			<nav className="hidden lg:flex gap-[40px]">
 				<Link
@@ -45,15 +47,16 @@ const Navbar = () => {
 				</div>
 
 				<CiHeart className="hidden lg:block w-6 h-6" />
-				<CiUser className="w-6 h-6" />
+				<CiUser className="hidden lg:block w-6 h-6" />
 				<Link
 					href={"/cart"}
 					className="relative flex items-center gap-4 lg:gap-1">
 					<p className="hidden lg:block text-lg font-bold">Cart</p>
 					<CiSearch className="block md:hidden w-6 h-6" />
+					<CiUser className="block md:hidden w-6 h-6" />
 					<div className="flex items-center gap-1">
 						<MdOutlineShoppingCart className="w-6 h-6" />
-						<span className="text-white text-sm rounded-full bg-red-600 p-1">
+						<span className="hidden lg:block text-white text-sm rounded-full bg-red-600 p-1">
 							10+
 						</span>
 					</div>

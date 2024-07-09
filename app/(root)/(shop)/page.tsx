@@ -16,7 +16,7 @@ const page = () => {
 					<h2 className="hidden lg:block text-xl font-semibold px-4">
 						Showing 1 - 12 of 45 items
 					</h2>
-					<div className="flex items-center justify-center gap-4 lg:hidden px-6">
+					<div className="flex items-center justify-center gap-3 lg:hidden">
 						<Select>
 							<SelectTrigger className="w-[180px] outline-none border-2 border-primary-main focus:outline-none focus:outline-offset-0 text-primary-main">
 								<SelectValue

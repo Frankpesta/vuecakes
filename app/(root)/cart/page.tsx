@@ -31,8 +31,8 @@ const Cart = () => {
 				<table className="min-w-full">
 					<thead>
 						<tr>
-							<th className="px-2 lg:px-6 py-3 text-sm lg:text-[20px] text-left"></th>
-							<th className="px-2 lg:px-3 py-3 text-sm lg:text-[20px] text-left">
+							<th className="px-0 lg:px-6 py-3 text-sm lg:text-[20px] text-left"></th>
+							<th className="px-0 lg:px-3 py-3 text-sm lg:text-[20px] text-left">
 								Product
 							</th>
 							<th className="px-2 lg:px-6 py-3 text-sm lg:text-[20px] text-left">
@@ -75,7 +75,7 @@ const Cart = () => {
 									</p>
 								</td>
 								<td className="px-2 lg:px-6 py-4">
-									<div className="flex items-center space-x-4">
+									<div className="flex items-center space-x-1 lg:space-x-4">
 										<button className="bg-pink-600 text-white text-xs lg:text-xl rounded p-1">
 											<FiMinus />
 										</button>
@@ -87,7 +87,7 @@ const Cart = () => {
 										</button>
 									</div>
 								</td>
-								<td className="px-2 lg:px-6 py-4 ">
+								<td className="px-2 lg:px-6 py-4">
 									<p className="text-xs lg:text-xl">
 										N {(product.price * product.quantity).toLocaleString()}
 									</p>
