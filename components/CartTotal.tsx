@@ -15,11 +15,11 @@ const CartTotal = () => {
 				Cart Total
 			</h2>
 			<div className="mb-4 flex items-center justify-between">
-				<p className="text-lg">Subtotal</p>
-				<p className="text-lg">N {subtotal.toLocaleString()}</p>
+				<p className="text-sm lg:text-lg">Subtotal</p>
+				<p className="text-sm lg:*:text-lg">N {subtotal.toLocaleString()}</p>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
-				<p className="text-lg">Delivery</p>
+				<p className="text-sm lg:text-lg">Delivery</p>
 				<div className="flex flex-col gap-3">
 					<div className="flex items-center mb-2">
 						<input
@@ -31,12 +31,11 @@ const CartTotal = () => {
 							onChange={() => setDeliveryOption("quick")}
 							className="mr-2 accent-black"
 						/>
-						<div className="flex flex-col gap-1">
-							<label htmlFor="quickDelivery" className="text-sm lg:text-lg">
-								Quick Delivery:
-							</label>
-							<span className="text-right">5,000</span>
-						</div>
+						<label htmlFor="quickDelivery" className="text-sm lg:text-lg">
+							Quick Delivery:
+						</label>
+
+						<span className="block text-right">5,000</span>
 					</div>
 					<div className="flex flex-col items-center gap-3">
 						<input
@@ -48,7 +47,7 @@ const CartTotal = () => {
 							onChange={() => setDeliveryOption("store")}
 							className="mr-2 accent-black"
 						/>
-						<label htmlFor="storePickup" className="text-lg">
+						<label htmlFor="storePickup" className="text-sm lg:text-lg">
 							Store pick up
 						</label>
 					</div>
