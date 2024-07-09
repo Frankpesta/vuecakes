@@ -37,7 +37,7 @@ const CartTotal = () => {
 
 						<span className="block text-right text-sm lg:text-lg">5,000</span>
 					</div>
-					<div className="flex flex-col items-center gap-3">
+					<div className="flex items-center gap-3">
 						<input
 							type="radio"
 							id="storePickup"
