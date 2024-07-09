@@ -9,7 +9,7 @@ import MobileNav from "./MobileNav";
 const Navbar = () => {
 	const [active, setActive] = useState("shop");
 	return (
-		<div className="flex items-center justify-between py-[30px] px-8 lg:px-[75px] bg-white z-30">
+		<div className="flex items-center justify-between py-[30px] px-4 lg:px-[75px] bg-white z-30">
 			<Link href={"/"} className="">
 				<h2 className="text-lg md:text-2xl font-bold text-primary-darker">
 					VUECAKES

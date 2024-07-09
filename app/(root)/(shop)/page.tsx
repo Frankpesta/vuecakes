@@ -18,7 +18,7 @@ const page = () => {
 					</h2>
 					<div className="flex items-center justify-center gap-3 lg:hidden">
 						<Select>
-							<SelectTrigger className="w-[180px] outline-none border-2 border-primary-main focus:outline-none focus:outline-offset-0 text-primary-main">
+							<SelectTrigger className="w-[140px] outline-none border-2 border-primary-main focus:outline-none focus:outline-offset-0 text-primary-main">
 								<SelectValue
 									placeholder="Categories"
 									className="text-primary-main text-lg placeholder:text-primary-main placeholder:text-md"
@@ -32,7 +32,7 @@ const page = () => {
 						</Select>
 
 						<Select>
-							<SelectTrigger className="w-[180px] outline-none border-2 border-primary-main focus:outline-none focus:outline-offset-0 text-primary-main">
+							<SelectTrigger className="w-[140px] outline-none border-2 border-primary-main focus:outline-none focus:outline-offset-0 text-primary-main">
 								<SelectValue
 									placeholder="Sort By"
 									className="text-primary-main text-lg placeholder:text-primary-main placeholder:text-md"
