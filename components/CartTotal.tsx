@@ -11,7 +11,9 @@ const CartTotal = () => {
 
 	return (
 		<div className="p-4 lg:p-12 bg-primary-lighter rounded-lg shadow-md w-full max-w-md mx-auto mt-8">
-			<h2 className="text-[30px] font-bold text-pink-600 mb-4">Cart Total</h2>
+			<h2 className="text-lg lg:text-[30px] font-bold text-pink-600 mb-4">
+				Cart Total
+			</h2>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-lg">Subtotal</p>
 				<p className="text-lg">N {subtotal.toLocaleString()}</p>
@@ -29,9 +31,12 @@ const CartTotal = () => {
 							onChange={() => setDeliveryOption("quick")}
 							className="mr-2 accent-black"
 						/>
-						<label htmlFor="quickDelivery" className="text-lg">
-							Quick Delivery: N5,000
-						</label>
+						<div className="flex flex-col gap-1">
+							<label htmlFor="quickDelivery" className="text-sm lg:text-lg">
+								Quick Delivery:
+							</label>
+							<span className="text-right">5,000</span>
+						</div>
 					</div>
 					<div className="flex flex-col items-center gap-3">
 						<input
@@ -50,17 +55,19 @@ const CartTotal = () => {
 				</div>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
-				<p className="text-lg">Address</p>
+				<p className="text-sm lg:text-lg">Address</p>
 				<div>
-					<p className="text-lg">Banex Plaza, Wuse</p>
+					<p className="text-sm lg:text-lg">Banex Plaza, Wuse</p>
 					<a href="#" className="text-pink-600 hover:underline">
 						Change Address
 					</a>
 				</div>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
-				<p className="text-lg font-bold">Total</p>
-				<p className="text-lg font-bold">N {total.toLocaleString()}</p>
+				<p className="text-sm lg:text-lg font-bold">Total</p>
+				<p className="text-sm lg:text-lg font-bold">
+					N {total.toLocaleString()}
+				</p>
 			</div>
 			<button
 				onClick={() => router.push("/checkout")}
