@@ -1,5 +1,5 @@
 import ShopCard from "@/components/ShopCard";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
 	Select,
 	SelectContent,
@@ -9,6 +9,9 @@ import {
 } from "@/components/ui/select";
 
 const page = () => {
+	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(false);
+
 	return (
 		<div className="grid grid-cols-12 gap-4 w-full ">
 			<main className="col-span-12">
