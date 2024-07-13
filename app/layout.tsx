@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import StoreProvider from "./StoreProvider";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -26,11 +27,14 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${nunito.variable}`}>
-				<Provider store={store}>
+				<StoreProvider>
 					<Navbar />
+
+					<Toaster position="top-right" />
 					{children}
+
 					<Footer />
-				</Provider>
+				</StoreProvider>
 			</body>
 		</html>
 	);

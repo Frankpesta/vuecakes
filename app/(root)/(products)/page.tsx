@@ -1,3 +1,4 @@
+"use client";
 import ShopCard from "@/components/ShopCard";
 import React, { useState, useEffect } from "react";
 import {
@@ -8,16 +9,43 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 
+interface ProductsProps {
+	id: string;
+	name: string;
+	categories: [];
+	current_price: [];
+	photos: [];
+	unique_id: string;
+}
+
+interface ProductsResponse {
+	size: number;
+	total: number;
+	items: ProductsProps[];
+}
+
 const page = () => {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState<ProductsResponse | null>(null);
 	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		async function fetchData() {
+			setLoading(true);
+			const response = await fetch("/api/products");
+			const data = await response.json();
+			setLoading(false);
+			setProducts(data);
+			console.log(data);
+		}
+		fetchData();
+	}, []);
 
 	return (
 		<div className="grid grid-cols-12 gap-4 w-full ">
 			<main className="col-span-12">
 				<div className="flex justify-between items-center mb-4">
 					<h2 className="hidden lg:block text-xl font-semibold px-4">
-						Showing 1 - 12 of 45 items
+						Showing 1 - {products?.size} of {products?.total} items
 					</h2>
 					<div className="flex items-center justify-center gap-4 lg:hidden px-3">
 						<Select>
@@ -49,7 +77,7 @@ const page = () => {
 						</Select>
 					</div>
 				</div>
-				<ShopCard />
+				<ShopCard items={products?.items || []} />
 			</main>
 		</div>
 	);
