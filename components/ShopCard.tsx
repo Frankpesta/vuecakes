@@ -7,11 +7,24 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { useAddToCart } from "@/redux/hooks/carthooks";
 import { ProductsProps, CurrentPrice } from "@/lib";
+import Pagination from "./Pagination";
 
 interface ShopCardProps {
 	items: ProductsProps[];
+	nextPage: string | undefined;
+	size: number | undefined;
+	total: number | undefined;
+	page: number | undefined;
+	onPageChange: (page: number) => void;
 }
-const ShopCard = ({ items }: ShopCardProps) => {
+const ShopCard = ({
+	items,
+	nextPage,
+	size,
+	total,
+	page,
+	onPageChange,
+}: ShopCardProps) => {
 	const numbers = ["1", "2", "3", "4"];
 	const router = useRouter();
 	const addToCart = useAddToCart();
@@ -60,19 +73,12 @@ const ShopCard = ({ items }: ShopCardProps) => {
 					</div>
 				))}
 			</div>
-			<div className="flex items-center justify-center gap-4 my-8">
-				{numbers.map((number, index) => (
-					<button
-						className={`border py-2 px-4 rounded ${
-							index === 0
-								? "bg-primary-main text-white"
-								: "text-primary-main border-primary-main bg-white"
-						}`}
-						key={index}>
-						{number}
-					</button>
-				))}
-			</div>
+			<Pagination
+				currentPage={page}
+				totalItems={total}
+				itemsPerPage={size}
+				onPageChange={onPageChange}
+			/>
 		</>
 	);
 };

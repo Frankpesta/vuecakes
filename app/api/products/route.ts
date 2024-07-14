@@ -17,6 +17,7 @@ export async function GET(request: NextRequest) {
 
 		// Fetch data from Timbu Cloud
 		const response = await fetch(apiUrl, {
+			next: { revalidate: 60 },
 			headers: {
 				"Content-Type": "application/json",
 			},

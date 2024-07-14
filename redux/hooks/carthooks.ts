@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addItem, removeItem, clearCart } from "../slices/cartSlice";
 import { ProductsProps } from "@/lib";
+import { toast } from "react-hot-toast";
 
 export const useAddToCart = () => {
 	const dispatch = useDispatch();
@@ -10,6 +11,7 @@ export const useAddToCart = () => {
 		(event: React.MouseEvent<HTMLButtonElement>) => {
 			event.preventDefault();
 			dispatch(addItem(product));
+			toast.success("Item added successfully");
 		};
 
 	return handleAddToCart;
@@ -25,8 +27,8 @@ export const useRemoveFromCart = () => {
 		) => {
 			event.preventDefault();
 			dispatch(removeItem(productId));
+			toast.success("Item removed successfully");
 		};
-	console.log("removed");
 
 	return handleRemoveFromCart;
 };

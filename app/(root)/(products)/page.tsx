@@ -13,26 +13,33 @@ import ShopLeftsidebar from "@/components/ShopLeftsidebar";
 import { ProductsProps } from "@/lib";
 
 interface ProductsResponse {
-	size: number;
-	total: number;
+	size: number | undefined;
+	total: number | undefined;
 	items: ProductsProps[];
+	next_page: string | undefined;
+	page: number | undefined;
 }
 
 const Page = () => {
 	const [products, setProducts] = useState<ProductsResponse | null>(null);
 	const [loading, setLoading] = useState(false);
+	const [currentPage, setCurrentPage] = useState(1);
+
+	const handlePageChange = (newPage: number) => {
+		setCurrentPage(newPage);
+	};
+
+	async function fetchData(page: number) {
+		setLoading(true);
+		const response = await fetch(`/api/products?page=${page}`);
+		const data = await response.json();
+		setLoading(false);
+		setProducts(data);
+	}
 
 	useEffect(() => {
-		async function fetchData() {
-			setLoading(true);
-			const response = await fetch("/api/products");
-			const data = await response.json();
-			setLoading(false);
-			setProducts(data);
-			console.log(data);
-		}
-		fetchData();
-	}, []);
+		fetchData(currentPage);
+	}, [currentPage]);
 
 	return (
 		<>
@@ -75,7 +82,14 @@ const Page = () => {
 								</Select>
 							</div>
 						</div>
-						<ShopCard items={products?.items || []} />
+						<ShopCard
+							items={products?.items || []}
+							nextPage={products?.next_page}
+							size={products?.size}
+							total={products?.total}
+							page={products?.page}
+							onPageChange={handlePageChange}
+						/>
 					</main>
 				</div>
 			</main>

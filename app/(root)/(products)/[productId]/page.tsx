@@ -3,6 +3,8 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import { ReactImageGalleryItem } from "react-image-gallery";
+import { useAddToCart } from "@/redux/hooks/carthooks";
+import { ProductsProps } from "@/lib";
 
 interface ProductDetailsProps {
 	available_quantity: number;
@@ -32,6 +34,7 @@ function ProductDetail() {
 	const params = useParams();
 	const [product, setProduct] = useState<ProductDetailsProps | null>(null);
 	const [loading, setLoading] = useState(false);
+	const addToCart = useAddToCart();
 
 	useEffect(() => {
 		async function fetchProduct() {
@@ -67,7 +70,7 @@ function ProductDetail() {
 				Product Details -{" "}
 				<span className="text-primary-main">{product?.name}</span>
 			</h2>
-			<div className="my-4 flex flex-col lg:flex-row items-center justify-center gap-12">
+			<div className="my-4 flex flex-col lg:flex-row items-start justify-center gap-12">
 				<div className="w-full">
 					<ImageGallery
 						items={galleryItems}
@@ -96,7 +99,9 @@ function ProductDetail() {
 					<p className="mb-4">{product.description}</p>
 
 					<div className="py-6 flex items-center justify-center gap-8">
-						<button className="bg-primary-main text-white px-6 py-2 rounded hover:bg-gray-800 transition">
+						<button
+							onClick={addToCart(product)}
+							className="bg-primary-main text-white px-6 py-2 rounded hover:bg-gray-800 transition">
 							Add to cart
 						</button>
 						<button className="border border-primary-main outline-none text-primary-main px-6 py-2 rounded hover:bg-gray-800 transition">
