@@ -5,9 +5,15 @@ import { CiUser, CiHeart, CiSearch } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Input } from "@/components/ui/input";
 import MobileNav from "./MobileNav";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const Navbar = () => {
 	const [active, setActive] = useState("shop");
+	const cartItemCount = useSelector(
+		(state: RootState) => state.cart.items.length
+	);
+
 	return (
 		<div className="flex items-center justify-between py-[30px] px-4 lg:px-[75px] bg-white z-30">
 			<Link href={"/"} className="">
@@ -54,12 +60,12 @@ const Navbar = () => {
 					<p className="hidden lg:block text-lg font-bold">Cart</p>
 					<CiSearch className="block md:hidden w-6 h-6" />
 					<CiUser className="block md:hidden w-6 h-6" />
-					<div className="flex items-center gap-1">
+					<figure className="lg:h-8 lg:w-8 relative rounded-md">
 						<MdOutlineShoppingCart className="w-6 h-6" />
-						<span className="hidden lg:block text-white text-sm rounded-full bg-red-600 p-1">
-							10+
-						</span>
-					</div>
+						<div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full -top-2 -end-2">
+							{cartItemCount}
+						</div>
+					</figure>
 				</Link>
 				<MobileNav />
 			</div>

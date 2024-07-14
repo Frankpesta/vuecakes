@@ -1,3 +1,4 @@
+// store.ts
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./slices/cartSlice";
 import wishlistSlice from "./slices/wishlistSlice";
@@ -21,3 +22,10 @@ export const makeStore = () => {
 			}),
 	});
 };
+
+const store = makeStore();
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export default store;

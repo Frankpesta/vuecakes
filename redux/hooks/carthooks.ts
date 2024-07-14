@@ -19,10 +19,14 @@ export const useRemoveFromCart = () => {
 	const dispatch = useDispatch();
 
 	const handleRemoveFromCart =
-		(productId: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
+		(productId: string) =>
+		(
+			event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<SVGElement>
+		) => {
 			event.preventDefault();
 			dispatch(removeItem(productId));
 		};
+	console.log("removed");
 
 	return handleRemoveFromCart;
 };

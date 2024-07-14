@@ -10,15 +10,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import ShopLeftsidebar from "@/components/ShopLeftsidebar";
-
-interface ProductsProps {
-	id: string;
-	name: string;
-	categories: [];
-	current_price: [];
-	photos: [];
-	unique_id: string;
-}
+import { ProductsProps } from "@/lib";
 
 interface ProductsResponse {
 	size: number;

@@ -17,9 +17,9 @@ const MobileNav = () => {
 			{/* Hamburger Menu Icon */}
 			<div className="sm:hidden" onClick={toggleNav}>
 				{isNavOpen ? (
-					<IoMdClose className="block lg:hidden w-6 h-6" />
+					<IoMdClose className="block md:hidden w-6 h-6" />
 				) : (
-					<IoMdMenu className="block lg:hidden w-6 h-6" />
+					<IoMdMenu className="block md:hidden w-6 h-6" />
 				)}
 			</div>
 

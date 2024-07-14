@@ -35,8 +35,8 @@ const CartTotal = () => {
 							Quick Delivery:
 						</label>
 					</div>
-					<span className="block text-right text-sm lg:text-lg mt-[-1.3rem]">
-						5,000
+					<span className="block text-right text-sm font-bold lg:text-lg mt-[-1rem]">
+						N 5,000
 					</span>
 					<div className="flex items-center gap-3">
 						<input
@@ -52,15 +52,6 @@ const CartTotal = () => {
 							Store pick up
 						</label>
 					</div>
-				</div>
-			</div>
-			<div className="mb-4 flex items-center justify-between">
-				<p className="text-sm lg:text-lg">Address</p>
-				<div>
-					<p className="text-sm lg:text-lg">Banex Plaza, Wuse</p>
-					<a href="#" className="text-pink-600 hover:underline">
-						Change Address
-					</a>
 				</div>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
