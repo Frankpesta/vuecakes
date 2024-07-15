@@ -1,4 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+	ProductInput,
+	CurrentPrice,
+	ProductsProps,
+	PhotoProps,
+	ProductDetailsProps,
+} from "@/lib";
+
+const getNGNPrice = (current_price: CurrentPrice[] | number): number => {
+	if (Array.isArray(current_price)) {
+		const priceArray = current_price[0]?.NGN;
+		return priceArray && typeof priceArray[0] === "number" ? priceArray[0] : 0;
+	}
+	return current_price;
+};
 
 interface CartItem {
 	id: string;
@@ -11,23 +26,6 @@ interface CartItem {
 	price: number; // Ensure price is included for each item
 }
 
-interface PhotoProps {
-	file_rename: boolean;
-	filename: string;
-	is_featured: boolean;
-	is_public: boolean;
-	model_id: string;
-	model_name: string;
-	organization_id: string;
-	position: number;
-	save_as_jpg: boolean;
-	url: string;
-}
-
-interface CurrentPrice {
-	NGN: (number | null | any[])[];
-}
-
 interface CartState {
 	items: CartItem[];
 	total: number;
@@ -38,19 +36,47 @@ const initialState: CartState = {
 	total: 0,
 };
 
+// Type guard for ProductDetailsProps
+function isProductDetailsProps(
+	product: ProductInput
+): product is ProductDetailsProps {
+	return !(
+		"unique_id" in product &&
+		"quantity" in product &&
+		"price" in product
+	);
+}
+
 const cartSlice = createSlice({
 	name: "cart",
 	initialState,
 	reducers: {
-		addItem: (state, action: PayloadAction<Omit<CartItem, "quantity">>) => {
+		addItem: (state, action: PayloadAction<ProductsProps>) => {
 			const newItem = action.payload;
 			const existingItem = state.items.find((item) => item.id === newItem.id);
 			if (existingItem) {
 				existingItem.quantity++;
 			} else {
-				state.items.push({ ...newItem, quantity: 1 });
+				const itemToAdd: CartItem = {
+					...newItem,
+					unique_id: newItem.unique_id,
+					quantity: 1,
+					price: newItem.price,
+				};
+				state.items.push(itemToAdd);
 			}
 			state.total += newItem.price;
+		},
+		addProduct: (state, action: PayloadAction<ProductDetailsProps>) => {
+			const newProduct = action.payload;
+			const itemToAdd: CartItem = {
+				...newProduct,
+				unique_id: newProduct.id, // or generate a unique id
+				quantity: 1, // default quantity
+				price: getNGNPrice(newProduct.current_price),
+			};
+			state.items.push(itemToAdd);
+			state.total += itemToAdd.price;
 		},
 		removeItem: (state, action: PayloadAction<string>) => {
 			const id = action.payload;
@@ -68,8 +94,31 @@ const cartSlice = createSlice({
 			state.items = [];
 			state.total = 0;
 		},
+		incrementQuantity: (state, action: PayloadAction<string>) => {
+			const id = action.payload;
+			const item = state.items.find((item) => item.id === id);
+			if (item) {
+				item.quantity++;
+				state.total += item.price;
+			}
+		},
+		decrementQuantity: (state, action: PayloadAction<string>) => {
+			const id = action.payload;
+			const item = state.items.find((item) => item.id === id);
+			if (item && item.quantity > 1) {
+				item.quantity--;
+				state.total -= item.price;
+			}
+		},
 	},
 });
 
-export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export const {
+	addItem,
+	addProduct,
+	removeItem,
+	clearCart,
+	incrementQuantity,
+	decrementQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;

@@ -4,37 +4,18 @@ import { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import { ReactImageGalleryItem } from "react-image-gallery";
 import { useAddToCart } from "@/redux/hooks/carthooks";
-import { ProductsProps } from "@/lib";
-
-interface ProductDetailsProps {
-	available_quantity: number;
-	categories: [];
-	current_price: number;
-	date_created: string;
-	description: string;
-	id: string;
-	is_available: boolean;
-	name: string;
-	photos: PhotoProps[];
-}
-interface PhotoProps {
-	file_rename: boolean;
-	filename: string;
-	is_featured: boolean;
-	is_public: boolean;
-	model_id: string;
-	model_name: string;
-	organization_id: string;
-	position: number;
-	save_as_jpg: boolean;
-	url: string;
-}
+import { PhotoProps, ProductDetailsProps, CurrentPrice } from "@/lib";
 
 function ProductDetail() {
 	const params = useParams();
 	const [product, setProduct] = useState<ProductDetailsProps | null>(null);
 	const [loading, setLoading] = useState(false);
 	const addToCart = useAddToCart();
+
+	const getNGNPrice = (current_price: CurrentPrice[]): number => {
+		const priceArray = current_price[0]?.NGN;
+		return priceArray && typeof priceArray[0] === "number" ? priceArray[0] : 0;
+	};
 
 	useEffect(() => {
 		async function fetchProduct() {
@@ -82,7 +63,9 @@ function ProductDetail() {
 				</div>
 
 				<div className="w-full">
-					<p className="text-2xl font-bold mb-2">N {product.current_price}</p>
+					<p className="text-2xl font-bold mb-2">
+						N {getNGNPrice(product.current_price)}
+					</p>
 					<div className="flex mb-4">
 						{[1, 2, 3, 4, 5].map((star) => (
 							<svg

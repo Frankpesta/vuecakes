@@ -4,7 +4,6 @@ import Image from "next/image";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
 import { useAddToCart } from "@/redux/hooks/carthooks";
 import { ProductsProps, CurrentPrice } from "@/lib";
 import Pagination from "./Pagination";
@@ -25,7 +24,6 @@ const ShopCard = ({
 	page,
 	onPageChange,
 }: ShopCardProps) => {
-	const numbers = ["1", "2", "3", "4"];
 	const router = useRouter();
 	const addToCart = useAddToCart();
 

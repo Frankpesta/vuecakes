@@ -7,16 +7,19 @@ import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { ProductsProps, CurrentPrice } from "@/lib";
 import Link from "next/link";
-import { useRemoveFromCart } from "@/redux/hooks/carthooks";
+import {
+	useRemoveFromCart,
+	useIncrementQuantity,
+	useDecrementQuantity,
+} from "@/redux/hooks/carthooks";
 
 const Cart = () => {
 	const items = useSelector((state: RootState) => state.cart.items);
 	const total = useSelector((state: RootState) => state.cart.total);
 
 	const removeFromCart = useRemoveFromCart();
-
-	console.log(items);
-	console.log(total);
+	const incrementQuantity = useIncrementQuantity();
+	const decrementQuantity = useDecrementQuantity();
 
 	const getNGNPrice = (current_price: CurrentPrice[]): number | null => {
 		const priceArray = current_price[0]?.NGN;
@@ -84,13 +87,17 @@ const Cart = () => {
 									</td>
 									<td className="px-2 lg:px-6 py-4">
 										<div className="flex items-center space-x-1 lg:space-x-4">
-											<button className="bg-pink-600 text-white text-xs lg:text-xl rounded p-1">
+											<button
+												className="bg-pink-600 text-white text-xs lg:text-xl rounded p-1"
+												onClick={() => decrementQuantity(product.id)}>
 												<FiMinus />
 											</button>
 											<p className="w-4 lg:w-8 text-center text-xs lg:text-xl">
 												{product.quantity}
 											</p>
-											<button className="bg-pink-600 text-white text-xs lg:text-xl rounded p-1">
+											<button
+												className="bg-pink-600 text-white text-xs lg:text-xl rounded p-1"
+												onClick={() => incrementQuantity(product.id)}>
 												<FiPlus />
 											</button>
 										</div>

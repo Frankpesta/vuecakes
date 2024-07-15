@@ -25,3 +25,20 @@ export interface PhotoProps {
 	save_as_jpg: boolean;
 	url: string;
 }
+
+interface ProductDetailsProps {
+	available_quantity: number;
+	categories: [];
+	date_created: string;
+	description: string;
+	id: string;
+	is_available: boolean;
+	name: string;
+	photos: PhotoProps[];
+	unique_id: string;
+	quantity: number;
+	price: number;
+	current_price: CurrentPrice[];
+}
+
+export type ProductInput = ProductDetailsProps | ProductsProps;
