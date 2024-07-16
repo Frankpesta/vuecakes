@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
 	Select,
 	SelectContent,
@@ -8,9 +8,35 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const Page = () => {
 	const router = useRouter();
+	const searchParams = useSearchParams();
+	const total = searchParams.get("total");
+	const deliveryOption = searchParams.get("deliveryOption");
+	const items = useSelector((state: RootState) => state.cart.items);
+
+	const SignUpSchema = z.object({
+		bankName: z.string().min(1, { message: "Bank name is required" }),
+		accountNumber: z.string().min(1, { message: "Account number is required" }),
+		accountName: z.string().min(1, { message: "Account name is required" }),
+	});
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		resolver: zodResolver(SignUpSchema),
+		mode: "onSubmit",
+		reValidateMode: "onChange",
+		defaultValues: {},
+	});
+
 	return (
 		<div className="bg-slate-50 p-4 lg:p-12">
 			<div className="max-w-full md:max-w-5xl mx-auto p-4 lg:p-12 bg-white rounded-lg shadow-none md:shadow-md">
@@ -99,21 +125,27 @@ const Page = () => {
 					</div>
 					<div className="bg-gray-100 p-6 rounded-lg shadow-md border-2 border-primary-main h-fit space-y-8">
 						<h2 className="text-lg font-bold text-pink-600 mb-4">Your Order</h2>
-						<div className="flex justify-between mb-2">
-							<span>Red velvet single layer cake 10 inches</span>
-							<span>X 2</span>
-						</div>
+						{items.map((item) => (
+							<div key={item.id} className="flex justify-between mb-2">
+								<span>{item.name}</span>
+								<span>X {item.quantity}</span>
+							</div>
+						))}
 						<div className="flex justify-between mb-2">
 							<span>Subtotal</span>
-							<span>N 30,000</span>
+							<span>{total}</span>
 						</div>
 						<div className="flex justify-between mb-2">
 							<span>Delivery</span>
-							<span>Quick Delivery: N5,000</span>
+							<span>
+								{deliveryOption === "quick"
+									? "Quick Devlivery: 5000"
+									: "Store Pickup"}
+							</span>
 						</div>
 						<div className="flex justify-between font-bold text-lg mt-4">
 							<span>Total</span>
-							<span>N 35,000</span>
+							<span>{total}</span>
 						</div>
 						<button
 							onClick={() => router.push("/checkout/pay")}

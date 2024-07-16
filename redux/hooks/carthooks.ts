@@ -91,8 +91,8 @@ export const useIncrementQuantity = () => {
 		) => {
 			event.preventDefault();
 			dispatch(incrementQuantity(productId));
-			console.log("clicked");
 		};
+
 	return handleIncrementQuantity;
 };
 
@@ -106,7 +106,6 @@ export const useDecrementQuantity = () => {
 		) => {
 			event.preventDefault();
 			dispatch(decrementQuantity(productId));
-			console.log("decrement");
 		};
 
 	return handleDecrementQuantity;

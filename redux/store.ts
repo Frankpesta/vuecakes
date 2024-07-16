@@ -2,6 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./slices/cartSlice";
 import wishlistSlice from "./slices/wishlistSlice";
+import persistCartMiddleware from "./persistCartMiddleware";
 
 export const makeStore = () => {
 	return configureStore({
@@ -10,16 +11,7 @@ export const makeStore = () => {
 			wishlist: wishlistSlice,
 		},
 		middleware: (getDefaultMiddleware) =>
-			getDefaultMiddleware({
-				serializableCheck: {
-					// Ignore these action types
-					ignoredActions: ["auth/setVerificationDetails"],
-					// Ignore these field paths in all actions
-					ignoredActionPaths: ["payload.license"],
-					// Ignore these paths in the state
-					// ignoredPaths: ["items.dates"],
-				},
-			}),
+			getDefaultMiddleware().concat(persistCartMiddleware),
 	});
 };
 

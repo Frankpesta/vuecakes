@@ -2,12 +2,24 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const CartTotal = () => {
+interface CartTotalProps {
+	total: number;
+}
+
+const CartTotal = ({ total }: CartTotalProps) => {
 	const router = useRouter();
 	const [deliveryOption, setDeliveryOption] = useState("quick");
-	const subtotal = 30000;
 	const deliveryCost = deliveryOption === "quick" ? 5000 : 0;
-	const total = subtotal + deliveryCost;
+	const overallTotal = total + deliveryCost;
+
+	const handleCheckout = () => {
+		const queryParams = new URLSearchParams({
+			total: overallTotal.toString(),
+			deliveryOption: deliveryOption,
+		}).toString();
+
+		router.push(`/checkout?${queryParams}`);
+	};
 
 	return (
 		<div className="p-4 lg:p-12 bg-primary-lighter rounded-lg shadow-md w-full max-w-md mx-auto mt-8">
@@ -16,7 +28,7 @@ const CartTotal = () => {
 			</h2>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-sm lg:text-lg">Subtotal</p>
-				<p className="text-sm lg:text-lg">N {subtotal.toLocaleString()}</p>
+				<p className="text-sm lg:text-lg">N {total}</p>
 			</div>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-sm lg:text-lg">Delivery</p>
@@ -56,12 +68,10 @@ const CartTotal = () => {
 			</div>
 			<div className="mb-4 flex items-center justify-between">
 				<p className="text-sm lg:text-lg font-bold">Total</p>
-				<p className="text-sm lg:text-lg font-bold">
-					N {total.toLocaleString()}
-				</p>
+				<p className="text-sm lg:text-lg font-bold">N {overallTotal}</p>
 			</div>
 			<button
-				onClick={() => router.push("/checkout")}
+				onClick={handleCheckout}
 				className="w-full bg-pink-600 text-white py-3 rounded-md mt-2">
 				Checkout
 			</button>
